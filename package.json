@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "color": "^2.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.13",
-    "react-studs": "^0.2.3",
+    "react-studs": "^0.3.4",
     "styled-components": "^2.1.2"
   },
   "scripts": {
@@ -14,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "styleguide": "studs styleguide"
+    "styleguide": "studs styleguide",
+    "gen": "studs generate"
   },
   "devDependencies": {
     "studs-cli": "^0.1.4"

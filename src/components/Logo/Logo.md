@@ -1,3 +1,3 @@
 ```javascript
-<Logo />
+<Logo>STUDS</Logo>
 ```

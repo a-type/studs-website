@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import BlockImage from './BlockImage';
 
 const select = theme.register('Block', (values) => ({
-  background: 'white',
-  color: 'black',
+  background: values.colors.primaryContrast,
+  color: values.colors.primary,
   size: '50px',
 }))
 .addVariant('small', {
@@ -13,12 +13,18 @@ const select = theme.register('Block', (values) => ({
 })
 .addVariant('large', {
   size: '100px',
+})
+.addVariant('logo', {
+  size: '20vh',
 }).createSelector();
 
 const BlockImpl = theme.connect(styled.div`
+  width: calc(${select('size')} * 2);
+  height: ${select('size')};
+  margin: auto;
   /* add your css here */
   & > svg {
-    width: ${select('size', (val) => parseInt(val.replace('px', ''), 10) * 2)}px;
+    width: calc(${select('size')} * 2);
     height: ${select('size')};
   }
 
@@ -33,4 +39,5 @@ export const Block = (props) => <BlockImpl {...props}><BlockImage /></BlockImpl>
 
 Block.Small = theme.variant('small')(Block);
 Block.Large = theme.variant('large')(Block);
+Block.Logo = theme.variant('logo')(Block);
 export default Block;
