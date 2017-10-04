@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import theme from '../../theme';
 import styled, { css } from 'styled-components';
 import P from '../P';
+import CodeExample from '../CodeExample';
 
 const select = theme.register('BuildStep', (values) => ({
   background: values.colors.white,
@@ -12,7 +13,7 @@ const select = theme.register('BuildStep', (values) => ({
   color: values.colors.gray,
   padding: values.spacing.large,
   margin: values.spacing.large,
-  maxWidth: '600px',
+  maxWidth: 'none',
   pieces: {
     background: values.colors.grayLightest,
     borderRadius: '20px',
@@ -22,7 +23,7 @@ const select = theme.register('BuildStep', (values) => ({
     padding: values.spacing.large,
     margin: values.spacing.small,
     scribbleFontFamily: values.fonts.scribble,
-    scribbleColor: values.colors.quinary,
+    scribbleColor: values.colors.tertiary,
   },
   stepNumber: {
     fontSize: '40px',
@@ -103,8 +104,9 @@ export default class BuildStep extends React.Component {
       count: PropTypes.number,
     })),
     children: PropTypes.node.isRequired,
-    details: PropTypes.string.isRequired,
+    details: PropTypes.node.isRequired,
     scribble: PropTypes.string,
+    code: PropTypes.string,
   };
 
   static defaultProps = {
@@ -132,13 +134,14 @@ export default class BuildStep extends React.Component {
   };
 
   render() {
-    const { number, pieces, children, details } = this.props;
+    const { number, pieces, children, details, code } = this.props;
     return (
       <Container>
         {pieces && this.renderPieces()}
         {number && <Number>{number}</Number>}
         <Display>{children}</Display>
         <Details><P.Tight>{details}</P.Tight></Details>
+        {code && <CodeExample>{code}</CodeExample>}
       </Container>
     );
   }

@@ -1,13 +1,14 @@
 import React from 'react';
 import theme from '../../theme';
 import styled from 'styled-components';
+import { spreadStyles } from 'react-studs';
 
 const select = theme.register('Link', (values) => ({
-  /* add your configurable properties here */
+  color: values.colors.primary,
 })).createSelector();
 
 const LinkImpl = theme.connect(styled.a`
-  /* add your css here */
+  ${spreadStyles(select)}
 `);
 
 export const Link = (props) => <LinkImpl {...props} />;

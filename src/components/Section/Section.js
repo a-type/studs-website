@@ -10,7 +10,7 @@ const select = theme.register('Section', (values) => ({
   flexDirection: 'column',
   alignItems: 'flex-start',
   margin: '0 auto',
-  overflowX: 'hidden',
+  overflow: 'visible',
 }))
 .addVariant('row', {
   flexDirection: 'row',

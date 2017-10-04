@@ -24,7 +24,6 @@ const select = theme.register('Block', (values) => ({
 })
 .addVariant('title', (values) => ({
   size: '20vh',
-  color: values.colors.primary,
 }))
 .addVariant('primary', (values) => ({
   background: values.colors.primary,
@@ -32,6 +31,14 @@ const select = theme.register('Block', (values) => ({
 }))
 .addVariant('secondary', (values) => ({
   background: values.colors.secondary,
+  color: values.colors.black,
+}))
+.addVariant('tertiary', (values) => ({
+  background: values.colors.tertiary,
+  color: values.colors.black,
+}))
+.addVariant('quaternary', (values) => ({
+  background: values.colors.quaternary,
   color: values.colors.black,
 }))
 .addVariant('black', (values) => ({
@@ -67,4 +74,6 @@ Block.Title = theme.variant('title')(Block);
 Block.Primary = theme.variant('primary')(Block);
 Block.Secondary = theme.variant('secondary')(Block);
 Block.Black = theme.variant('black')(Block);
+Block.Tertiary = theme.variant('tertiary')(Block);
+Block.Quaternary = theme.variant('quaternary')(Block);
 export default Block;

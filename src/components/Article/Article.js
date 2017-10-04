@@ -10,6 +10,8 @@ const select = theme.register('Article', (values) => ({
   justifyContent: 'flex-start',
   zIndex: '1000',
   position: 'relative',
+  maxWidth: '1600px',
+  margin: '0 auto',
 })).createSelector();
 
 const ArticleImpl = theme.connect(styled.article`

@@ -6,17 +6,17 @@ import LogoImage from './LogoImage';
 const RATIO = 3.238710618613727;
 
 const select = theme.register('Logo', (values) => ({
-  color: values.colors.white,
-  background: values.colors.primary,
+  color: values.colors.black,
+  background: values.colors.white,
   strokeWidth: '2px',
   size: '50px',
 }))
-.addVariant('title', {
+.addVariant('title', (values) => ({
   size: '15vh',
-})
+}))
 .addVariant('inverted', (values) => ({
-  color: values.colors.primary,
-  background: values.colors.white,
+  color: values.colors.white,
+  background: values.colors.black,
 }))
 .addVariant('small', {
   size: '25px',

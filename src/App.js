@@ -3,9 +3,10 @@ import { StudsWebsiteThemeProvider } from './theme';
 import Gradient from './components/Gradient';
 import Article from './components/Article';
 import Intro from './sections/Intro';
-import Bottom from './sections/Bottom';
 import Purpose from './sections/Purpose';
 import Instructions from './sections/Instructions';
+import Install from './sections/Install';
+import Footer from './sections/Footer';
 
 class App extends Component {
   render() {
@@ -17,10 +18,10 @@ class App extends Component {
               <Intro />
               <Purpose />
               <Instructions />
+              <Install />
             </Article>
-            <div style={{ height: '400px' }} />
+            <Footer />
           </Gradient>
-          <Bottom />
         </div>
       </StudsWebsiteThemeProvider>
     );

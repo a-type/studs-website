@@ -8,7 +8,7 @@ const select = theme.register('H1', (values) => ({
   margin: 0,
   padding: 0,
   textTransform: 'uppercase',
-  fontSize: '2em',
+  fontSize: '2.5em',
 })).createSelector();
 
 const H1Impl = theme.connect(styled.h1`

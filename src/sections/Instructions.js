@@ -14,7 +14,7 @@ const TinySecondaryBlock = theme.variant(['tiny', 'secondary'])(Block);
 
 theme.registerVariant('Block', 'fancy', ({ colors }) => ({
   background: colors.tertiary,
-  color: colors.quinary,
+  color: colors.white,
   opacity: 0.9,
 }));
 const FancyBlock = theme.variant('fancy')(Block);
@@ -28,7 +28,7 @@ const Container = styled.div`
 
   & > div {
     flex: 1 0 0;
-    min-width: 300px;
+    min-width: 600px;
   }
 `;
 
@@ -39,6 +39,60 @@ const steps = [
   'Now that you\'ve created your components and pre-defined variants, you can just ship out your library as-is. Your users can utilize the components and variants you define.',
   'But that\'s only the beginning. Your users can also add their own variants, modifying any of the properties you defined, just like you did!',
   'All styling utilizes a theme, and the theme can also be extended by users—allowing them to make broad customizations across both your original components, and their own customized variants. Try clicking a block to see it in action!',
+];
+
+const code = [
+  `
+import theme from '../theme';
+
+const select = theme
+  .register(
+    'Block',
+    values => ({ size: '25px', background: values.colors.white })
+  )
+  .createSelector();
+
+const Block = styled.div\`background: \${select('background')}; /* etc */\`;
+  `,
+  `
+theme
+  .registerVariant(
+    'Block',
+    'primary',
+    values => ({ background: values.colors.primary })
+  );
+
+Block.Secondary = theme.variant('secondary')(Block);
+  `,
+  `
+theme
+  .registerVariant(
+    'Block',
+    'large',
+    values => ({ size: '50px' })
+  );
+
+Block.Large = theme.variant('large')(Block);
+  `,
+  `
+<div>
+  <Block />
+  <Block.SmallPrimary />
+  <Block.SmallSecondary />
+</div>
+  `,
+  `
+// your user's code
+import theme from 'your-library';
+
+theme.registerVariant('Block', 'fancy', { color: myFancyColor });
+  `,
+  `
+// your user's code
+import theme from 'your-library';
+
+const myTheme = theme.extend({ colors: { primary: myBrandColor } });
+  `,
 ];
 
 export default () => (
@@ -53,6 +107,7 @@ export default () => (
           }
         ]}
         details={steps[0]}
+        code={code[0]}
       >
         <Block style={{ marginBottom: '16px' }}/>
       </BuildStep>
@@ -73,6 +128,7 @@ export default () => (
           },
         ]}
         details={steps[1]}
+        code={code[1]}
       >
         <Block.Secondary style={{ zIndex: 2, transform: 'translateY(34px)' }} />
         <Block.Primary style={{ zIndex: 1, transform: 'translateY(0)' }} />
@@ -95,6 +151,7 @@ export default () => (
           },
         ]}
         details={steps[2]}
+        code={code[2]}
       >
         <Block.Small style={{ zIndex: 2, transform: 'translateY(17px) translateX(51px)' }} />
         <Block style={{ zIndex: 1, transform: 'translateY(-5px) translateX(34px)' }} />
@@ -117,6 +174,7 @@ export default () => (
           },
         ]}
         details={steps[3]}
+        code={code[3]}
       >
         <SmallSecondaryBlock style={{ zIndex: 1, transform: 'translateY(70px) translateX(17px)' }} />
         <SmallSecondaryBlock style={{ zIndex: 0, transform: 'translateY(52px) translateX(17px)' }} />
@@ -125,7 +183,7 @@ export default () => (
         <Block style={{ zIndex: 2, transform: 'translateY(-50px) translateX(-25px)' }} />
       </BuildStep>
       <BuildStep
-        number={1}
+        number={5}
         pieces={[
           {
             count: 1,
@@ -133,13 +191,14 @@ export default () => (
           }
         ]}
         details={steps[4]}
+        code={code[4]}
         scribble="Plus one fancy block!"
       >
         <FancyBlock style={{ zIndex: 1, transform: 'translateY(0)' }} />
         <Block style={{ transform: 'translateY(-33px)' }}/>
       </BuildStep>
       <BuildStep
-        number={1}
+        number={6}
         pieces={[
           {
             count: 1,
@@ -155,6 +214,7 @@ export default () => (
           },
         ]}
         details={steps[5]}
+        code={code[5]}
       >
         <div style={{ display: 'flex', marginBottom: '8px' }}>
           <div style={{ textAlign: 'center' }}>

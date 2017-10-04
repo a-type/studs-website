@@ -8,7 +8,7 @@ const getViewportHeight = () => (document.documentElement.clientHeight || docume
 const fallRegistrations = {};
 
 const renderLoop = () => {
-  Object.values(fallRegistrations).forEach(({ startYPercent, y, element }) => {
+  Object.values(fallRegistrations).forEach(({ startYPercent, y, x, element }) => {
     if (!startYPercent || !element) {
       return;
     }
@@ -24,9 +24,9 @@ const renderLoop = () => {
         * (initialBottom - y)
       );
     if (Math.abs(pos - y) < 3) {
-      element.style.bottom = y + 'px';
+      element.style.transform = `translateX(${x}px) translateY(${-y}px)`;
     } else {
-      element.style.bottom = pos + 'px';
+      element.style.transform = `translateX(${x}px) translateY(${-pos}px)`;
     }
 
   });
@@ -69,16 +69,11 @@ export default class Fall extends React.Component {
           if (!el) {
             return;
           }
-          if (startYPercent) {
-            el.style.bottom = (getScrollHeight() * startYPercent) + 'px';
-          } else {
-            el.style.bottom = `${y}px`;
-          }
-          fallRegistrations[this.id] = { y: this.props.y, startYPercent: this.props.startYPercent, element: el };
+          fallRegistrations[this.id] = { ...this.props, element: el };
         }}
         style={{
-          position: 'absolute',
-          left: `${x}px`,
+          position: 'relative',
+          transform: `translateX(${x}px) translateY(${startYPercent ? getScrollHeight() * startYPercent : y}px)`,
           zIndex: z,
         }}
       >

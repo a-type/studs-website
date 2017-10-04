@@ -15,7 +15,6 @@ const globals = {
     grayLightest: '#e8e1e8',
     tertiary: '#ffcc55',
     quaternary: '#233d4d',
-    quinary: '#fe7f2d',
   },
   fonts: {
     brand: 'Legothick',
@@ -72,7 +71,6 @@ const secondaryTheme = defaultTheme.extend({
     secondary: globals.colors.primary,
     tertiary: globals.colors.quaternary,
     quaternary: globals.colors.tertiary,
-    quinary: globals.colors.white,
   },
   fonts: {
     default: 'Caveat, cursive',
@@ -87,7 +85,6 @@ const blackTheme = defaultTheme.extend({
     secondary: globals.colors.grayLight,
     tertiary: globals.colors.grayLighter,
     quaternary: globals.colors.white,
-    quinary: globals.colors.black,
     black: globals.colors.white,
     white: globals.colors.black,
     gray: globals.colors.white,
