@@ -66,6 +66,9 @@ export default class Fall extends React.Component {
     return (
       <div
         ref={(el) => {
+          if (!el) {
+            return;
+          }
           if (startYPercent) {
             el.style.bottom = (getScrollHeight() * startYPercent) + 'px';
           } else {

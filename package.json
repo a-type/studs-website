@@ -19,6 +19,6 @@
     "gen": "studs generate"
   },
   "devDependencies": {
-    "studs-cli": "^0.1.4"
+    "studs-cli": "^0.1.6"
   }
 }

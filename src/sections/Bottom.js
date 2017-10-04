@@ -16,6 +16,7 @@ const calcY = (x, y, z) =>
   + y * BLOCK_HEIGHT
   + ((baseGrid.length - x) * (BLOCK_HEIGHT * 0.75))
   + ((baseGrid[0].length - z) * (BLOCK_HEIGHT * 1.25));
+const calcZ = (x, y, z) => x + z;
 
 theme.registerVariant('Block', 'footer', { size: `${BLOCK_SIZE}px` });
 
@@ -63,11 +64,12 @@ const createBaseBlocks = () => baseGrid.reduce((list, rows, yIndex) =>
     list2.concat(row.map((blockPresent, xIndex) => {
       if (blockPresent) {
         return (<SizedBlock
+          key={`${xIndex}${yIndex}${zIndex}`}
           style={{
             position: 'absolute',
             left: `${calcX(xIndex, yIndex, zIndex)}px`,
             bottom: `${calcY(xIndex, yIndex, zIndex)}px`,
-            zIndex: zIndex + xIndex,
+            zIndex: calcZ(xIndex, yIndex, zIndex),
           }}
         />);
       }
@@ -81,9 +83,10 @@ const createBaseBlocks = () => baseGrid.reduce((list, rows, yIndex) =>
 const createFallingBlocks = () => falling.reduce((list, props) => ([
   ...list,
   (<Fall
+    key={`${props.x}${props.y}${props.z}`}
     x={calcX(props.x, props.y, props.z)}
     y={calcY(props.x, props.y, props.z)}
-    z={props.z + props.x}
+    z={calcZ(props.x, props.y, props.z)}
     startYPercent={props.startY}
   >
     <SizedBlock />
@@ -94,6 +97,5 @@ export default () => (
   <div style={{ paddingLeft: '300px' }}>
     {createBaseBlocks()}
     {createFallingBlocks()}
-    <Logo.Inverted>STUDS</Logo.Inverted>
   </div>
 );

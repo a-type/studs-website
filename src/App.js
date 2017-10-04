@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import { StudsWebsiteThemeProvider } from './theme';
 import Gradient from './components/Gradient';
+import Article from './components/Article';
 import Intro from './sections/Intro';
 import Bottom from './sections/Bottom';
+import Purpose from './sections/Purpose';
+import Instructions from './sections/Instructions';
 
 class App extends Component {
   render() {
     return (
       <StudsWebsiteThemeProvider>
-        <Gradient>
-          <Intro />
-          <div style={{ height: '600vh' }} />
+        <div style={{ position: 'relative' }}>
+          <Gradient>
+            <Article>
+              <Intro />
+              <Purpose />
+              <Instructions />
+            </Article>
+            <div style={{ height: '400px' }} />
+          </Gradient>
           <Bottom />
-        </Gradient>
+        </div>
       </StudsWebsiteThemeProvider>
     );
   }

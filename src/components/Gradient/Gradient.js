@@ -3,8 +3,8 @@ import theme from '../../theme';
 import styled from 'styled-components';
 
 const select = theme.register('Gradient', (values) => ({
-  start: values.colors.primaryContrast,
-  end: values.colors.primary,
+  start: values.colors.primary,
+  end: values.colors.quaternary,
 })).createSelector();
 
 const GradientImpl = theme.connect(styled.div`
@@ -12,7 +12,7 @@ const GradientImpl = theme.connect(styled.div`
   background: linear-gradient(${select('start')}, ${select('end')});
   width: 100%;
   height: 100%;
-  position: relative;
+  transition: 0.2s all;
 `);
 
 export const Gradient = (props) => <GradientImpl {...props} />;

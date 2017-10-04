@@ -5,15 +5,15 @@ const shapeStyle = { fill: '#ffffff', stroke: '#000000', strokeWidth: '0.2645833
 export default () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="124.54504mm"
-    height="88.871933mm"
-    viewBox="0 0 124.54504 88.871933"
+    width="126.54504mm"
+    height="90.871933mm"
+    viewBox="0 0 126.54504 90.871933"
     version="1.1"
     id="svg4740"
   >
   <g
       id="layer1"
-      transform="translate(-39.289963,-104.91899)">
+      transform="translate(-38.289963,-103.91899)">
     <path
         style={{ fill: '#ffffff', stroke: 'none' }}
         d="m 39.422255,142.25094 39.422252,20.98066 84.858123,-37.685 -38.87599,-20.27502 z"
