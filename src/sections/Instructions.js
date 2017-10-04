@@ -25,10 +25,16 @@ const Container = styled.div`
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
+  max-width: 100%;
 
   & > div {
     flex: 1 0 0;
     min-width: 600px;
+
+    @media(max-width: 600px) {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
   }
 `;
 

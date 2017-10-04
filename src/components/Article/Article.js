@@ -5,7 +5,7 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme.register('Article', (values) => ({
   sectionFlex: '0 0 auto',
-  padding: '2vh',
+  padding: values.spacing.extraLarge,
   alignItems: 'flex-start',
   justifyContent: 'flex-start',
   zIndex: '1000',
@@ -22,6 +22,11 @@ const ArticleImpl = theme.connect(styled.article`
 
   & > section {
     flex: ${select('sectionFlex')};
+  }
+
+  @media(max-width: 600px) {
+    padding-left: 4px;
+    padding-right: 4px;
   }
 `);
 

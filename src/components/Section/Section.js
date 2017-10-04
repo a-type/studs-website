@@ -22,6 +22,11 @@ const select = theme.register('Section', (values) => ({
 const SectionImpl = theme.connect(styled.section`
   ${spreadStyles(select)}
   display: flex;
+
+  @media(max-width: 600px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `);
 
 export const Section = (props) => <SectionImpl {...props} />;
