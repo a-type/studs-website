@@ -6,6 +6,6 @@ import theme from '../theme';
 
 export default () => (
   <Section.Row>
-    <Block.Title /><Logo.Title />
+    <Block.Title style={{ marginRight: 0 }}/><Logo.Title style={{ marginLeft: 0}}/>
   </Section.Row>
 );

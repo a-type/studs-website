@@ -5,6 +5,7 @@ import { spreadStyles } from 'react-studs';
 
 const select = theme.register('Link', (values) => ({
   color: values.colors.primary,
+  cursor: 'pointer',
 })).createSelector();
 
 const LinkImpl = theme.connect(styled.a`

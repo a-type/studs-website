@@ -9,7 +9,7 @@
     "react-dom": "^15.6.1",
     "react-motion": "^0.5.2",
     "react-scripts": "1.0.13",
-    "react-studs": "^0.3.6",
+    "react-studs": "^1.0.1",
     "react-syntax-highlighter": "^5.7.0",
     "styled-components": "^2.1.2"
   },
