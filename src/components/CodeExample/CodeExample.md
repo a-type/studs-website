@@ -5,5 +5,7 @@ theme.renderDocumentation('CodeExample');
 ```
 
 ```javascript
-<CodeExample />
+<CodeExample>
+  exampleCode.show();
+</CodeExample>
 ```

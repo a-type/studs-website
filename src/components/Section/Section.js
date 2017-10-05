@@ -8,7 +8,7 @@ const select = theme.register('Section', (values) => ({
   padding: values.spacing.extraLarge,
   color: values.colors.white,
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   margin: '0 auto',
   overflow: 'visible',
 }))

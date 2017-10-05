@@ -5,5 +5,8 @@ theme.renderDocumentation('P');
 ```
 
 ```javascript
-<P />
+<div>
+  <P>Some paragraph content</P>
+  <P>Another 'graph</P>
+</div>
 ```

@@ -5,5 +5,5 @@ theme.renderDocumentation('Box');
 ```
 
 ```javascript
-<Box />
+<Box>Content!</Box>
 ```

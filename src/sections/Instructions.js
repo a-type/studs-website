@@ -52,20 +52,24 @@ const code = [
 import theme from '../theme';
 
 const select = theme
-  .register(
-    'Block',
-    values => ({ size: '25px', background: values.colors.white })
-  )
+  .register('Block', globals => ({
+    size: '25px',
+    background: globals.colors.white
+  }))
   .createSelector();
 
-const Block = styled.div\`background: \${select('background')}; /* etc */\`;
+const Block = styled.div\`
+  background: \${select('background')};
+  width: calc(\${select('size')} * 2);
+  height: \${select('size')};
+\`;
   `,
   `
 theme
   .registerVariant(
     'Block',
     'primary',
-    values => ({ background: values.colors.primary })
+    globals => ({ background: globals.colors.primary })
   );
 
 Block.Secondary = theme.variant('secondary')(Block);
@@ -75,7 +79,7 @@ theme
   .registerVariant(
     'Block',
     'large',
-    values => ({ size: '50px' })
+    { size: '50px' },
   );
 
 Block.Large = theme.variant('large')(Block);

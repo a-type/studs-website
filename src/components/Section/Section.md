@@ -5,5 +5,5 @@ theme.renderDocumentation('Section');
 ```
 
 ```javascript
-<Section />
+<Section>Section content</Section>
 ```

@@ -5,5 +5,5 @@ theme.renderDocumentation('Article');
 ```
 
 ```javascript
-<Article />
+<Article>Article Content</Article>
 ```

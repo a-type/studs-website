@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import Link from '../Link';
 import Collapse from 'react-collapse';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import tomorrowNight from 'react-syntax-highlighter/dist/styles/tomorrow-night';
+import coloring from 'react-syntax-highlighter/dist/styles/atom-one-dark';
 
 const select = theme.register('CodeExample', (values) => ({
-  margin: `${values.spacing.medium} 0`,
+  margin: `${values.spacing.medium} 0 0 0`,
 })).createSelector();
 
 const Container = theme.connect(styled.div`
@@ -41,7 +41,7 @@ export default class CodeExample extends React.Component {
         {this.renderToggle()}
         <Collapse isOpened={this.state.expanded}>
           <Content>
-            <SyntaxHighlighter language={this.props.language} style={tomorrowNight}>
+            <SyntaxHighlighter language={this.props.language} style={coloring}>
               {this.props.children}
             </SyntaxHighlighter>
           </Content>

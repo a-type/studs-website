@@ -5,5 +5,7 @@ theme.renderDocumentation('Github');
 ```
 
 ```javascript
-<Github />
+<div style={{ background: 'black' }}>
+  <Github />
+</div>
 ```

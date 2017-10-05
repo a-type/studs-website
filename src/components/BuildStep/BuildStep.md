@@ -5,5 +5,19 @@ theme.renderDocumentation('BuildStep');
 ```
 
 ```javascript
-<BuildStep />
+const Block = require('../Block').default;
+
+<BuildStep
+  number={13}
+  pieces={[
+    {
+      display: <Block />,
+      count: 3,
+    },
+  ]}
+  details="A description of the step"
+  code="exampleCode();"
+>
+  <Block.Large />
+</BuildStep>
 ```

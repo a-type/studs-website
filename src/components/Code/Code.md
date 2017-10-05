@@ -5,5 +5,7 @@ theme.renderDocumentation('Code');
 ```
 
 ```javascript
-<Code />
+<Code>
+  react-studs
+</Code>
 ```

@@ -5,12 +5,12 @@ module.exports = {
   sections: [
     {
       name: 'Components',
-      components: 'src/components/**/*.js',
+      components: 'src/components/**/[A-Z]*.js',
     },
   ],
   ignore: ['src/components/**/index.js'],
   styleguideDir: 'docs',
-  require: ['styled-components'],
+  require: ['styled-components', path.join(__dirname, './src/theme')],
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'tools/Wrapper'),
   },
